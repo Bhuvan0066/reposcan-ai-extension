@@ -5,9 +5,6 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
     return true;
   }
 
-  /* ==========================================
-     FIX ISSUE
-  ========================================== */
 
   if (req.type === "fix_issue") {
 
@@ -35,10 +32,6 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
     return true;
   }
 
-  /* ==========================================
-     README
-  ========================================== */
-
   if (req.type === "generate_readme") {
 
     fetch("https://reposcan-backend-clean.onrender.com/readme", {
@@ -65,9 +58,6 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
     return true;
   }
 
-  /* ==========================================
-     COMMITS
-  ========================================== */
 
   if (req.type === "generate_commit") {
 
@@ -96,10 +86,6 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
   }
 
 });
-
-/* ==========================================
-   REAL REPO SCAN ENGINE
-========================================== */
 
 async function scanRepo(repo) {
 

@@ -40,9 +40,6 @@ panel.innerHTML = `
 
 document.body.appendChild(panel);
 
-/* ==========================================
-   PANEL ACTIONS
-========================================== */
 
 btn.onclick = () => {
 panel.classList.toggle("open");
@@ -56,10 +53,6 @@ document.getElementById("miniBtn").onclick = () => {
 const r = document.getElementById("result");
 r.style.display = r.style.display === "none" ? "block" : "none";
 };
-
-/* ==========================================
-   TOOLBAR
-========================================== */
 
 document.getElementById("scanBtn").onclick = runScan;
 
@@ -79,11 +72,6 @@ document.getElementById("shareBtn").onclick = () => {
 navigator.clipboard.writeText(lastRawReport);
 toast("Copied");
 };
-
-/* ==========================================
-   RUN SCAN
-========================================== */
-
 function runScan(){
 
 currentRepo = getRepo();
@@ -109,17 +97,10 @@ renderIssues(res.result);
 
 }
 
-/* ==========================================
-   GET REPO
-========================================== */
-
 function getRepo(){
 return location.pathname.split("/").slice(1,3).join("/");
 }
 
-/* ==========================================
-   RENDER TABLE
-========================================== */
 
 function renderIssues(text){
 
@@ -195,9 +176,6 @@ button.closest("tr")
 
 }
 
-/* ==========================================
-   MENU
-========================================== */
 
 function showMenu(x,y,msg,row){
 
@@ -284,9 +262,6 @@ const old = document.getElementById("fixMenu");
 if(old) old.remove();
 }
 
-/* ==========================================
-   POPUP
-========================================== */
 
 function showBigPopup(title,text,file){
 
@@ -334,9 +309,6 @@ a.click();
 
 }
 
-/* ==========================================
-   PDF
-========================================== */
 
 function exportPDF(){
 
@@ -356,9 +328,6 @@ w.document.close();
 
 }
 
-/* ==========================================
-   TOAST
-========================================== */
 
 function toast(msg){
 
@@ -374,9 +343,7 @@ t.remove();
 
 }
 
-/* ==========================================
-   DRAG PANEL
-========================================== */
+
 
 let drag = false;
 let ox = 0;
