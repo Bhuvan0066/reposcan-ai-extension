@@ -83,12 +83,32 @@ Modern futuristic panel inside GitHub.
 
 ---
 
-# 📥 Install Extension (2 Methods)
+# 📥 Install Extension (6 Methods)
 
-# Method 1 — GitHub ZIP Download (Recommended)
+# 📥 Install Extension
 
-### Step 1:
-Click:
+## Step 1: Download Files
 
-```text
+Go to top of repository page and click:
+
 Code → Download ZIP
+
+## Step 2: Extract ZIP
+
+Unzip downloaded folder.
+
+## Step 3: Open Chrome Extensions
+
+chrome://extensions/
+
+## Step 4: Enable Developer Mode
+
+Turn ON Developer Mode.
+
+## Step 5: Load Extension
+
+Click Load Unpacked
+
+## Step 6: Select Folder
+
+Choose extracted RepoScan folder.
