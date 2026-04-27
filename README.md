@@ -1,55 +1,94 @@
-# ⚡ GitHub AI Reviewer Pro X
-# RepoScan AI
+<div align="center">
 
-![RepoScan Banner](assets/banner.png)
+# ⚡ RepoScan AI
 
-## AI-Powered GitHub Security Scanner & Code Reviewer
+![RepoScan Banner](Assets/banner.png)
 
-RepoScan AI is a Chrome Extension that scans GitHub repositories for:
+### 🚀 AI-Powered GitHub Security Scanner & Smart Code Reviewer Chrome Extension
 
-- Security issues
-- Hardcoded secrets
-- Code smells
-- Best practice violations
-- AI Fix suggestions
-- PDF reports
-- Share reports instantly
-AI-powered Chrome Extension for reviewing GitHub repositories instantly.
+Detect vulnerabilities, review repositories, generate AI fixes, export reports — directly on GitHub.
 
----
+<br>
 
-## 🚀 Features
+![GitHub stars](https://img.shields.io/github/stars/Bhuvan0066/reposcan-ai-extension?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/Bhuvan0066/reposcan-ai-extension?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/Bhuvan0066/reposcan-ai-extension?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/Bhuvan0066/reposcan-ai-extension?style=for-the-badge)
 
-✅ Scan GitHub repositories for common coding issues  
-✅ Detect secrets / API keys / risky code  
-✅ Find unpinned dependencies  
-✅ Smart issue table with severity labels  
-✅ One-click AI Fix Suggestions  
-✅ Download fix reports  
-✅ Beautiful floating review panel  
-✅ Secure private backend connected with Groq AI
+<br>
+
+![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-blue?style=for-the-badge&logo=googlechrome)
+![AI Powered](https://img.shields.io/badge/AI-Powered-purple?style=for-the-badge)
+![Security Scanner](https://img.shields.io/badge/Security-Scanner-red?style=for-the-badge)
+
+</div>
 
 ---
 
-## 🧠 AI Powered Fixes
+# ✨ What is RepoScan AI?
 
-Generate intelligent fixes for issues like:
+RepoScan AI is a professional Chrome Extension that works directly on GitHub repositories and helps developers instantly detect:
 
-- Broad except blocks
-- Hardcoded secrets
-- Debug code
-- Poor validations
-- Dependency issues
-- Security risks
+✅ Security vulnerabilities  
+✅ Hardcoded secrets  
+✅ API keys / tokens  
+✅ Broad exceptions  
+✅ Debug code  
+✅ Unpinned dependencies  
+✅ Bad coding practices  
+
+And provides:
+
+🤖 AI Fix Suggestions  
+📄 PDF Reports  
+📤 Share Reports  
+⚡ One-click Repository Scan
 
 ---
 
-## 📦 Installation
+# 🖼 Live Preview
 
-### Chrome Browser
+![Preview](Assets/banner.png)
 
-1. Download this repository  
-2. Open:
+---
+
+# 🔥 Premium Features
+
+## 🔍 Smart GitHub Scanner
+Scans public repositories directly from GitHub UI.
+
+## 🤖 AI Suggested Fixes
+Every issue can generate professional AI fixes.
+
+## 🔐 Secret Detection
+Detects:
+
+- API Keys
+- Tokens
+- Passwords
+- Secrets
+- Unsafe configs
+
+## 📦 Dependency Analysis
+Checks missing pinned versions and risky packages.
+
+## 📄 Export to PDF
+Generate downloadable reports.
+
+## 📤 Share Reports
+Share scan results instantly.
+
+## 🎨 Premium Floating UI
+Modern futuristic panel inside GitHub.
+
+---
+
+# 📥 Install Extension (2 Methods)
+
+# Method 1 — GitHub ZIP Download (Recommended)
+
+### Step 1:
+Click:
 
 ```text
-chrome://extensions
+Code → Download ZIP
