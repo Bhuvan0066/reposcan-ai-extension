@@ -1,5 +1,19 @@
 # ⚡ GitHub AI Reviewer Pro X
+# RepoScan AI
 
+![RepoScan Banner](assets/banner.png)
+
+## AI-Powered GitHub Security Scanner & Code Reviewer
+
+RepoScan AI is a Chrome Extension that scans GitHub repositories for:
+
+- Security issues
+- Hardcoded secrets
+- Code smells
+- Best practice violations
+- AI Fix suggestions
+- PDF reports
+- Share reports instantly
 AI-powered Chrome Extension for reviewing GitHub repositories instantly.
 
 ---
