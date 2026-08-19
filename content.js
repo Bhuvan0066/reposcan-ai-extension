@@ -4,20 +4,17 @@ if (!document.getElementById("ai-btn")) {
 let currentRepo = "";
 let lastRawReport = "No report yet.";
 
-
 const btn = document.createElement("button");
 btn.id = "ai-btn";
 btn.innerHTML = `<img src="${chrome.runtime.getURL("icons/icon48.png")}" class="miniIcon">`;
 document.body.appendChild(btn);
-
-
 
 const panel = document.createElement("div");
 panel.id = "ai-panel";
 
 panel.innerHTML = `
 <div id="topBar">
-  <div><b>⚡ GitHub AI Reviewer</b></div>
+  <div><b>⚡ RepoScan AI</b></div>
 
   <div style="display:flex;gap:8px;">
     <button id="miniBtn">—</button>
@@ -27,6 +24,8 @@ panel.innerHTML = `
 
 <div id="toolbar">
   <button id="scanBtn">Scan</button>
+  <button id="readmeBtn">README</button>
+  <button id="commitBtn">Commit</button>
   <button id="refreshBtn">Refresh</button>
   <button id="clearBtn">Clear</button>
   <button id="pdfBtn">PDF</button>
@@ -39,7 +38,6 @@ panel.innerHTML = `
 `;
 
 document.body.appendChild(panel);
-
 
 btn.onclick = () => {
 panel.classList.toggle("open");
@@ -55,6 +53,8 @@ r.style.display = r.style.display === "none" ? "block" : "none";
 };
 
 document.getElementById("scanBtn").onclick = runScan;
+document.getElementById("readmeBtn").onclick = runGenerateReadme;
+document.getElementById("commitBtn").onclick = runGenerateCommit;
 
 document.getElementById("refreshBtn").onclick = () => {
 location.reload();
@@ -72,6 +72,7 @@ document.getElementById("shareBtn").onclick = () => {
 navigator.clipboard.writeText(lastRawReport);
 toast("Copied");
 };
+
 function runScan(){
 
 currentRepo = getRepo();
@@ -95,6 +96,49 @@ renderIssues(res.result);
 
 });
 
+}
+
+function runGenerateReadme(){
+currentRepo = getRepo();
+callAiFeature("generate_readme", { repo: currentRepo }, "Generated README", "README.md");
+}
+
+function runGenerateCommit(){
+currentRepo = getRepo();
+callAiFeature("generate_commit", { repo: currentRepo }, "Generated Commit Helper", "commit.txt");
+}
+
+function callAiFeature(type, payload, popupTitle, fileName){
+toast("🤖 Requesting AI feature...");
+
+let wakeTimer = setTimeout(() => {
+toast("⏳ Waking up backend, this can take up to a minute...", 8000);
+}, 4000);
+
+chrome.runtime.sendMessage({ type, ...payload }, function(res){
+clearTimeout(wakeTimer);
+
+if (!res) {
+toast("❌ No response from backend.");
+return;
+}
+
+if (res.error === "MISSING_GROQ_KEY") {
+toast("⚠️ Add Groq key in extension popup!", 4000);
+showBigPopup(
+"Groq API Key Required",
+res.result || "Please add your Groq API Key in the extension popup before using AI features.",
+"error.txt"
+);
+return;
+}
+
+if (res.result) {
+showBigPopup(popupTitle, res.result, fileName);
+} else {
+toast("❌ Request failed.");
+}
+});
 }
 
 function getRepo(){
@@ -227,22 +271,7 @@ toast("Hidden");
 
 /* REAL FIX */
 if(action === "fix"){
-
-toast("Generating AI Fix...");
-
-chrome.runtime.sendMessage({
-type:"fix_issue",
-issue:msg
-}, function(res){
-
-showBigPopup(
-"Suggested Fix",
-(res && res.result) ? res.result : "Fix failed.",
-"fix.txt"
-);
-
-});
-
+callAiFeature("fix_issue", { issue: msg }, "Suggested AI Fix", "fix.txt");
 }
 
 removeMenu();
@@ -329,7 +358,10 @@ w.document.close();
 }
 
 
-function toast(msg){
+function toast(msg, duration = 2000){
+
+const old = document.querySelector(".toastBox");
+if(old) old.remove();
 
 const t = document.createElement("div");
 t.className = "toastBox";
@@ -338,8 +370,8 @@ t.innerText = msg;
 document.body.appendChild(t);
 
 setTimeout(() => {
-t.remove();
-},1500);
+if(t.parentElement) t.remove();
+}, duration);
 
 }
 
